@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title class="title">Comment System</title>
+	<link rel="stylesheet" href="style.css">
+
+	 <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+<style>
+    .stars-outer{
+      position: relative;
+      display: inline-block;
+    }
+
+
+    .stars-inner{
+      position: absolute;
+      top: 0;
+      left: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+    }
+
+    .stars-outer::before{
+      content: "\f005 \f005 \f005 \f005 \f005";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: : #ccc; 
+    }
+
+    .stars-inner::before{
+      content: "\f005 \f005 \f005 \f005 \f005";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color:  #f8ce0b;
+    }
+
+  </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+    <div class="form-group">
+      <select id="product-select" class="form-control 
+      custom-select">
+        <option value="0" disabled selected>Select Rating type</option>
+        <option value="sony">Company Rating</option>
+        <option value="samsung">Suggest to friend</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="number" id="rating-control" class="form-control" step="0.1" max="5" placeholder="Rate 1 - 5" disabled>
+
+    </div>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Rating Type</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sony">
+          <td>Company Rating</td>
+          <td>
+            <div class="stars-outer">
+              <div class="stars-inner"></div>
+            </div>
+            <span class="numer-rating"></span>
+          </td>
+        </tr>
+        <tr class="samsung">
+          <td>Suggest to friend</td>
+          <td>
+            <div class="stars-outer">
+              <div class="stars-inner"></div>
+            </div>
+            <span class="numer-rating"></span>
+          </td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+
+<div class="form">
+<form>
+	<label id="name1" style="font-size:100% ;font-family: Times New Roman Georgia"> Full Name:  &nbsp   <input type="text" id="name" required><br/><br/></label>
+	
+
+	<label style="font-size:100% ;font-family: Times New Roman Georgia">Roll Num : &nbsp<input type="text" id="roll" required><br/><br/></label>
+	
+
+	<p style="font-size:100% ;font-family: Times New Roman Georgia">Body:<br/><br/> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	<textarea rows="5" col="30" id="bodyText"></textarea><br/><br/></p>
+
+	<input type="button" id="addComment" value="Add Comment">
+</div>
+
+
+<div id="container">
+
+
+</div>
+</form>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+	<script src="javascript.js"></script>
+
+
+<script type="text/javascript">
+  //Default Ratings
+  const ratings = {
+    sony: 4.7,
+    samsung: 3.4
+  }
+
+  //total Sars
+
+  const starsTotal = 5;
+  //Run get ratings when DOM loads
+
+  document.addEventListener('DOMContentLoaded',getRatings);
+  //Get ratings  
+
+  //Form Elements
+  const productSelect = document.getElementById('product-select');
+  const ratingControl = document.getElementById('rating-control');
+
+  let product;
+
+  //prod select change listner
+
+  productSelect.addEventListener('change',(e) => {
+    product = e.target.value;
+
+    //Enable rating control
+
+    ratingControl.disabled = false;
+
+    ratingControl.value = ratings[product];
+    console.log(product);
+  });
+
+  //Rating Control Change
+  ratingControl.addEventListener('blur',(e) => {
+    const rating = e.target.value;
+
+      //Make sure 5 or under
+
+      if(rating>5)
+      {
+        alert('Please rate 1 - 5');
+        return;
+      }
+
+      //Change Rating
+      ratings[product] = rating;
+      getRatings();
+  });
+
+  function getRatings(){
+
+    var i =1;
+    var sum = 0;
+    var average;
+    for(let rating in ratings){
+      //console.log(ratings[rating]);
+      //get percentage  
+      sum = sum + ratings[rating];
+      average = sum/i;
+      i = i + 1;
+      const starPercentage  = ((ratings[rating]/starsTotal))*100;
+
+      //Round to nearest 10
+
+      const starPercentageRounded = `${Math.round(starPercentage/10) * 10}%`;
+
+      console.log(starPercentageRounded);
+
+      // Set Width  of stars
+
+       document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+
+       //add number rating
+
+       document.querySelector(`.${rating} .numer-rating`).innerHTML = ratings[rating] ;
+    }
+  }
+</script>
+
+
+</body>
+</html>

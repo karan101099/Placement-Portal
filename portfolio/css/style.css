@@ -1,0 +1,445 @@
+/* CSS Variables */
+@import url(./variables.css);
+
+/* Global CSS */
+@import url(./global.css);
+
+/* Roboto*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+/* -------------------------------- Particles ------------------------------- */
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -10;
+}
+.paragraph {
+  background: white;
+}
+
+/* ------------------------------ End Particles ----------------------------- */
+
+/* ------------------------------- Scroll Bar ------------------------------- */
+
+body::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--gradient-colour);
+}
+
+/* ----------------------------- End Scroll Bar ----------------------------- */
+
+/* Start Navigation */
+
+/* .header-area .main-menu .navbar .navbar-brand {
+  padding: 0 2rem 0 5rem;
+}
+
+.header-area .main-menu .navbar {
+  padding: 1rem 6rem;
+}
+
+.header-area .main-menu .nav-item .nav-link {
+  font: normal 500 15px var(--roboto);
+  text-transform: uppercase;
+  padding: 0rem 1.5rem;
+  color: var(--title-colour);
+}
+
+.header-area .main-menu .navbar-nav .active a {
+  background: var(--gradient-colour);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header-area .main-menu .navbar-nav a:hover {
+  background: var(--gradient-colour);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+} */
+
+/* End Navigation */
+
+/* ------------------------------- New Nav Bar ------------------------------ */
+
+:root {
+  font-size: 16px;
+  font-family: "Roboto";
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141418;
+  --transition-speed: 600ms;
+}
+
+body {
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-left: 6rem;
+  padding: 1rem;
+}
+
+.navbar {
+  padding: 0px;
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 600ms ;
+  z-index: 1;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: grayscale(100%) opacity(0.7);
+  transition: var(--transition-speed);
+}
+
+.nav-link:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.fa-primary {
+  color: #ff7eee;
+}
+
+.fa-secondary {
+  color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+  transition: var(--transition-speed);
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: var(--transition-speed);
+}
+
+.logo-text {
+  display: inline;
+  position: absolute;
+  left: -999px;
+  transition: var(--transition-speed);
+}
+
+.navbar:hover .logo svg {
+  transform: rotate(-180deg);
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .nav-link {
+    height: 4rem;
+  }
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar:hover {
+    width: 13rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  .navbar:hover .logo svg {
+    margin-left: 9.5rem;
+  }
+
+  .navbar:hover .logo-text {
+    left: 0px;
+  }
+}
+
+
+
+/* ----------------------------- End New Navbar ----------------------------- */
+
+/* Banner Area */
+
+.about-img{
+  padding:3rem;
+}
+.row {
+  display: flex;
+}
+
+.site-main .site-banner .site-title h3 {
+  padding-top: 15%;
+  font-weight: 500;
+  align-items: center;
+}
+
+.site-main .site-banner .site-title h3::after {
+  content: "";
+  height: 2px;
+  width: 10rem;
+  background: black;
+  display: inline-block;
+  margin-left: 5%;
+  transform: translateY(-10px);
+}
+
+.site-main .site-banner .site-title h1 {
+  font-size: 3rem;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.site-main .site-banner .site-title h4 {
+  font-size: 1.5rem;
+}
+.site-main .site-banner .banner-image > img {
+  /* padding: 3rem 0; */
+  /* width: 90rem; */
+  display: block;
+  max-width: 50%;
+  margin: auto;
+  box-shadow: 20px 30px 40px rgba(0, 0, 0, 0.205);
+  margin-bottom: 50px;
+  padding: 5px;
+  background: var(--gradient-colour);
+}
+
+.site-title {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 991px) {
+
+  .paragraph{
+    padding-right:0px !important;
+  }
+
+  .about-title{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  .site-title {
+    order: 2;
+  }
+
+  .banner-image {
+    order: 1;
+    padding-top: 1rem;
+  }
+
+  .banner-image > img {
+    margin-top: 30px !important;
+  }
+
+  .header-area .main-menu .navbar .navbar-brand {
+    padding: 1rem;
+  }
+
+  .header-area .main-menu .navbar {
+    padding: 1rem 1rem;
+  }
+
+  .site-main .site-banner .site-title h3::after {
+    width: 32vw;
+  }
+}
+
+/* End Banner Area */
+
+/* --------------------------- Start Skillset Area -------------------------- */
+.skillset-area{
+  /* background-color: blue !important; */
+  padding:1rem 15rem;
+  /* margin-bottom: 40rem; */
+  
+}
+
+.single-tech-container{
+  transform-style: preserve-3d;
+  transform: perspective(1000px)
+}
+
+.single-brand{
+  height: fit-content;
+  width: fit-content;
+  padding:10px;
+  margin:10px;
+  border: 1px solid rgb(231, 220, 220);
+  background-color: white;
+  transform: translateZ(20px)
+}
+
+.skillset-desc{
+  letter-spacing: 0.5rem;
+  font-weight: 500;
+}
+
+.skillset-desc > span {
+  display: block;
+  font-size: xx-large;
+  width:fit-content;
+  font-style: italic;
+  /* margin-left: 5rem; */
+}
+
+.it1{
+  margin:auto;
+}
+
+@media screen and (max-width:991px){
+  .skillset-desc{
+    display: flex;
+    justify-content: space-around;
+
+  }
+  .skillset-desc > span {
+    letter-spacing: normal;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  .skillset-area{
+    padding: 0;
+    
+  }
+  .it2{
+    order: 2;
+  }
+
+  .it1{
+    order:1;
+  }
+}
+
+/* ---------------------------- End Skillset Area --------------------------- */
+
+/* --------------------------- Start Project Area --------------------------- */
+
+.img > img {
+  max-width:100%;
+}
+
+.site-main .project-area{
+  padding: 4rem 6rem;
+}
+
+/* footer */
+footer > div {
+  height: 5rem;
+  width: 100%;
+}
+
+/* Test cardd */
+
+.maincont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:blue;
+}
+.containerr{
+  position: relative;
+  width:600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:991px){
+  .site-main .project-area{
+    margin-top: 5rem;
+    padding: 0;
+  }
+}
+
+/* ---------------------------- End Project Area ---------------------------- */
+
+/* ------------------------- Start Achievements Area ------------------------ */
+
+.achievements{
+  padding: 4rem 6rem;
+}

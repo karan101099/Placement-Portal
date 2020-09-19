@@ -1,0 +1,49 @@
+.main_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin:auto;
+  margin-top: 20vh;
+}
+
+.img_div {
+  margin: auto;
+  width: fit-content;
+}
+
+.buttons {
+  margin: auto;
+  margin-top: 3rem;
+}
+
+.buttons > button {
+  font: bolder;
+  margin: 0 2rem;
+}
+
+.title {
+  margin: 3rem;
+}
+/* ------------------------------ Start Compass Logo ------------------------------ */
+
+.img_div > img {
+  height: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .compass {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------------------------- End Compass Logo ---------------------------- */
