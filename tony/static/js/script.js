@@ -4,7 +4,8 @@ var presentform=y;
 // Function to swap form
 
 function fn()
-{ 
+{  
+  
 if (x.style.display === "none") {
     x.style.display = "block";
     y.style.display = "none";
